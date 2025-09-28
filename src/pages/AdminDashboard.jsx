@@ -257,23 +257,25 @@ const CategoriesManager = () => {
                       <Edit size={16} />
                     </button>
                     {/* Hide delete button for protected categories */}
-                    {category.name !== "Slider" && category.name !== "No Category" && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleDeleteCategory(category);
-                        }}
-                        disabled={actionLoading === `deleting-${category.id}`}
-                        className="text-red-600 cursor-pointer hover:text-red-900 disabled:text-red-400 p-1"
-                        title="Delete Category"
-                      >
-                        {actionLoading === `deleting-${category.id}` ? (
-                          <Loader className="animate-spin" size={16} />
-                        ) : (
-                          <Trash2 size={16} />
-                        )}
-                      </button>
-                    )}
+                    {category.name !== "Slider" &&
+                      category.name !== "No Category" &&
+                      category.name !== "MobileSlider" && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleDeleteCategory(category);
+                          }}
+                          disabled={actionLoading === `deleting-${category.id}`}
+                          className="text-red-600 cursor-pointer hover:text-red-900 disabled:text-red-400 p-1"
+                          title="Delete Category"
+                        >
+                          {actionLoading === `deleting-${category.id}` ? (
+                            <Loader className="animate-spin" size={16} />
+                          ) : (
+                            <Trash2 size={16} />
+                          )}
+                        </button>
+                      )}
                   </div>
                 </div>
               </div>
